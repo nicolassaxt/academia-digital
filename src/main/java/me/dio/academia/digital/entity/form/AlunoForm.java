@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class AlunoForm {
 
   @NotEmpty(message = "Preencha o campo corretamente.")
-  @Size(min = 3, max =50, message = "'${validatedValue}' precisa estar entre {min} e {max} caracteres.")
+  @Size(min = 3, max =50, message = "'${validatedValue}' precisa estar entre {min} e {max} caracteres.")//${validatedValue} retorna o campo preenchido na mensagem
   private String nome;
 
   @NotEmpty(message = "Preencha o campo corretamente.")
@@ -26,6 +26,6 @@ public class AlunoForm {
   private String bairro;
 
   @NotNull(message = "Prencha o campo corretamente.")
-  @Past(message = "Data '${validatedValue}' é inválida.")
+  @Past(message = "Data '${validatedValue}' é inválida.")//apenas datas passadas da data atual
   private LocalDate dataDeNascimento;
 }

@@ -11,12 +11,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Data //utiliza o loombok pra fazer o gets ands sets, equals e hascodes
+@NoArgsConstructor // loombok cria um construtor vazio
+@AllArgsConstructor // loombok cria um construtor com todos os atributos
 @Entity
 @Table(name = "tb_alunos")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})//evitar o loop no json para a requsição lazy
 public class Aluno {
 
   @Id
@@ -32,8 +32,8 @@ public class Aluno {
 
   private LocalDate dataDeNascimento;
 
-  @OneToMany(mappedBy = "aluno", cascade = CascadeType.REMOVE , fetch = FetchType.LAZY)
-  @JsonIgnore
+  @OneToMany(mappedBy = "aluno", cascade = CascadeType.REMOVE , fetch = FetchType.LAZY)//Cascate é para alterar tanto na tabela quanto no relacionamento
+  @JsonIgnore //evitar o loop no json
   private List<AvaliacaoFisica> avaliacoes = new ArrayList<>();
 
 }

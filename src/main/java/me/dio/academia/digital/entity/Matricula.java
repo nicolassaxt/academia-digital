@@ -18,8 +18,8 @@ public class Matricula {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "aluno_id")
+  @OneToOne(cascade = CascadeType.ALL)//Cascate AlL é para alterar tanto na tabela quanto no relacionamento em caso de (Alterar, Excluir ...)
+  @JoinColumn(name = "aluno_id")//nome da FK
   private Aluno aluno;
 
   private LocalDateTime dataDaMatricula = LocalDateTime.now();
